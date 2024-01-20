@@ -8,7 +8,7 @@ export default defineConfig({
 		tailwind(),
 		astroLoadingIndicator({
 			color: "red",
-			height: "6px"
+			height: "6px",
 		}),
 	],
 });
