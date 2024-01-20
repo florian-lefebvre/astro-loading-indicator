@@ -1,6 +1,6 @@
 - [x] DELETE_MD
 - [x] actual integration
-- [ ] docs
+- [x] docs
 - [ ] lint
 - [ ] release
 - [ ] share

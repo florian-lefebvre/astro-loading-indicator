@@ -43,18 +43,62 @@ yarn add astro-loading-indicator
 2. Add the integration to your astro config
 
 ```diff
-+import integration from "astro-loading-indicator";
++import astroLoadingIndicator from "astro-loading-indicator";
 
 export default defineConfig({
   integrations: [
-+    integration(),
++    astroLoadingIndicator({ ... }),
   ],
 });
 ```
 
 ### Configuration
 
-TODO:configuration
+Here is the TypeScript type:
+
+```ts
+export type Options = {
+    color: string;
+    height?: string;
+}
+```
+
+#### `color`
+
+The indicator background color. Can be any valid CSS property.
+
+```ts
+import { defineConfig } from "astro/config";
+import astroLoadingIndicator from "astro-loading-indicator";
+
+export default defineConfig({
+  integrations: [
+    astroLoadingIndicator({ 
+      color: "#7e22ce",
+      // color: "red",
+      // color: "var(--myColor)"
+     }),
+  ],
+});
+```
+
+#### `height`
+
+The indicator height. Can be any valid CSS property. Defaults to `"2px"`.
+
+```ts
+import { defineConfig } from "astro/config";
+import astroLoadingIndicator from "astro-loading-indicator";
+
+export default defineConfig({
+  integrations: [
+    astroLoadingIndicator({
+      // ...
+      height: "1rem",
+     }),
+  ],
+});
+```
 
 ## Contributing
 
