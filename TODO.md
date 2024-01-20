@@ -1,5 +1,5 @@
-- [ ] DELETE_MD
-- [ ] actual integration
+- [x] DELETE_MD
+- [x] actual integration
 - [ ] docs
 - [ ] lint
 - [ ] release
