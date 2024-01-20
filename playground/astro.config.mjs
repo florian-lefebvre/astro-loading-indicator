@@ -1,13 +1,14 @@
 import tailwind from "@astrojs/tailwind";
-import astroTailwindConfigViewer from "astro-tailwind-config-viewer";
+import astroLoadingIndicator from "astro-loading-indicator";
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		tailwind(),
-		astroTailwindConfigViewer({
-			viewer: true,
+		astroLoadingIndicator({
+			color: "red",
+			height: "6px"
 		}),
 	],
 });
