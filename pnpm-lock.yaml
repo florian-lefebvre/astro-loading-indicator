@@ -20,6 +20,9 @@ importers:
       astro:
         specifier: ^4.0.0
         version: 4.1.2(@types/node@20.11.0)(typescript@5.3.3)
+      astro-integration-kit:
+        specifier: ^0.0.2
+        version: 0.0.2(astro@4.1.2)
       nprogress:
         specifier: ^0.2.0
         version: 0.2.0
@@ -1383,6 +1386,14 @@ packages:
     resolution: {integrity: sha512-3CYzex9M9FGQjCGMGyi6/31c8GJbgb0qGyrx5HWxPd0aCwh4cB2YjMb2Xf9UuoogrMrlO9cTqnB5rI5GHZTcUA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /astro-integration-kit@0.0.2(astro@4.1.2):
+    resolution: {integrity: sha512-QZReb4Y4svJ9kPEi/+fnSM6teFHt22omBafeXkVPKnQRjTuN+cSxLAU3RMrLcdmaLMyTXnGieu5XCPKbEUTiyg==}
+    peerDependencies:
+      astro: ^4.0.0
+    dependencies:
+      astro: 4.1.2(@types/node@20.11.0)(typescript@5.3.3)
+    dev: false
 
   /astro@4.1.2(@types/node@20.11.0)(typescript@5.3.3):
     resolution: {integrity: sha512-C/CrsIjRnRZYsLIBquAoTKj3ZPyGPVRByEcPMs6CrJLiHmcYnjpRMVd7oBFepU6772U1ZcXLy0zdxoRYjHFf5w==}

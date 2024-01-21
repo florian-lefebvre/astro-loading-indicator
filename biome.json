@@ -13,6 +13,6 @@
 		}
 	},
 	"files": {
-		"ignore": ["dist"]
+		"ignore": ["dist", ".astro"]
 	}
 }

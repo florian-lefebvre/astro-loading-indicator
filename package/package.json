@@ -30,6 +30,7 @@
 		"astro": "^4.0.0"
 	},
 	"dependencies": {
+		"astro-integration-kit": "^0.0.2",
 		"nprogress": "^0.2.0"
 	},
 	"devDependencies": {
