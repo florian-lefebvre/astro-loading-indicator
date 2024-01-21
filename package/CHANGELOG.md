@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.1.0
+
+### Minor Changes
+
+- 38a29a8: Allows using the package features as a component: `<LoadingIndicator />`
+
 ## 0.0.1
 
 ### Patch Changes
