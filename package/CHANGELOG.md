@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.1.1
+
+### Patch Changes
+
+- ccfb7ef: Adds HMR support
+
 ## 0.1.0
 
 ### Minor Changes
