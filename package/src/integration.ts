@@ -1,33 +1,20 @@
 import type { AstroIntegration } from "astro";
 import type { Options } from "./types";
+import { resolveOptions, resolveTemplate } from "./utils";
 
-export const integration = ({
-	color,
-	height = "2px",
-}: Options): AstroIntegration => {
+export const integration = (_options: Options): AstroIntegration => {
+	const options = resolveOptions(_options);
+
 	return {
 		name: "astro-loading-indicator",
 		hooks: {
 			"astro:config:setup": ({ injectScript }) => {
-				const style = {
-					"pointer-events": "none",
-					background: `${color}`,
-					position: "fixed",
-					"z-index": "1031",
-					top: "0",
-					left: "0",
-					width: "100%",
-					height: `${height}`,
-				};
-
 				injectScript(
 					"page",
 					`import { configure, start, done } from "astro-loading-indicator/deps";
 
 configure({
-    template: '<div style="${Object.entries(style)
-			.map(([key, value]) => `${key}: ${value};`)
-			.join("")}" role="bar"></div>',
+    template: '${resolveTemplate(options)}',
     showSpinner: false,
 });
 

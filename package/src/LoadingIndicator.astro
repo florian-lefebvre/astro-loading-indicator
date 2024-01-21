@@ -1,0 +1,41 @@
+---
+import type { Options } from './types';
+import { resolveOptions } from './utils';
+
+export interface Props extends Options {}
+
+const options = resolveOptions(Astro.props)
+---
+
+<script is:inline data-options={JSON.stringify(options)}>
+    const options = JSON.parse(
+        document.currentScript?.getAttribute('data-options') ?? null
+    )
+
+    window.__astroLoadingIndicatorOptions = options
+</script>
+<script>
+import { configure, start, done } from "nprogress";
+import "nprogress/nprogress.js";
+import { resolveTemplate } from "./utils"
+
+declare global {
+    interface Window {
+	__astroLoadingIndicatorOptions: Required<import("./types").Options>
+    }
+}
+
+const options = window.__astroLoadingIndicatorOptions
+
+configure({
+    template: resolveTemplate(options),
+    showSpinner: false
+})
+
+document.addEventListener("astro:before-preparation", () => {
+    start();
+});
+document.addEventListener("astro:after-swap", () => {
+    done();
+});
+</script>

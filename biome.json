@@ -11,5 +11,8 @@
 				"noExplicitAny": "warn"
 			}
 		}
+	},
+	"files": {
+		"ignore": ["dist"]
 	}
 }

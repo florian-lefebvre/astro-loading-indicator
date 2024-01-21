@@ -10,6 +10,15 @@ This is an [Astro integration](https://docs.astro.build/en/guides/integrations-g
 
 ### Installation
 
+This package can be used in 2 ways:
+
+- As an integration
+- As a component
+
+Scroll down if you want to see how to use the component!
+
+#### Integration
+
 Install the integration **automatically** using the Astro CLI:
 
 ```bash
@@ -52,6 +61,41 @@ export default defineConfig({
 });
 ```
 
+#### Component
+
+Install the package **manually**:
+
+1. Install the required dependencies
+
+```bash
+pnpm add astro-loading-indicator
+```
+
+```bash
+npm install astro-loading-indicator
+```
+
+```bash
+yarn add astro-loading-indicator
+```
+
+2. Add the component to your main layout:
+
+```diff
+---
+import { ViewTransitions } from "astro:transitions";
++import { LoadingIndicator } from "astro-loading-indicator"
+
+---
+<!doctype html>
+<html>
+  <head>
+  	<ViewTransitions />
++		<LoadingIndicator />
+  </head>
+</html>
+```
+
 ### Configuration
 
 Here is the TypeScript type:
@@ -82,6 +126,14 @@ export default defineConfig({
 });
 ```
 
+```tsx
+<LoadingIndicator
+  color="#7e22ce"
+  // color="red"
+  // color="var(--myColor)"
+/>
+```
+
 #### `height`
 
 The indicator height. Can be any valid CSS property. Defaults to `"2px"`.
@@ -98,6 +150,13 @@ export default defineConfig({
      }),
   ],
 });
+```
+
+```tsx
+<LoadingIndicator
+  color="..."
+  height="1rem"
+/>
 ```
 
 ## Contributing
