@@ -1,7 +1,7 @@
 import type { AstroIntegration } from "astro";
 import { createResolver, watchIntegration } from "astro-integration-kit";
-import type { Options } from "./types";
-import { resolveOptions, resolveTemplate } from "./utils";
+import type { Options } from "./types.js";
+import { resolveOptions, resolveTemplate } from "./utils.js";
 
 export const integration = (_options: Options): AstroIntegration => {
 	const options = resolveOptions(_options);
