@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.1.2
+
+### Patch Changes
+
+- 36fc58d: Improves imports
+
 ## 0.1.1
 
 ### Patch Changes
