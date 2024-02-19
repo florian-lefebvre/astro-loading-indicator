@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.2.0
+
+### Minor Changes
+
+- 5bdacd7: Removes the integration API and fixes the component
+
 ## 0.1.2
 
 ### Patch Changes
