@@ -10,59 +10,6 @@ This is an [Astro integration](https://docs.astro.build/en/guides/integrations-g
 
 ### Installation
 
-This package can be used in 2 ways:
-
-- As an integration
-- As a component
-
-Scroll down if you want to see how to use the component!
-
-#### Integration
-
-Install the integration **automatically** using the Astro CLI:
-
-```bash
-pnpm astro add astro-loading-indicator
-```
-
-```bash
-npm astro add astro-loading-indicator
-```
-
-```bash
-yarn astro add astro-loading-indicator
-```
-
-Or install it **manually**:
-
-1. Install the required dependencies
-
-```bash
-pnpm add astro-loading-indicator
-```
-
-```bash
-npm install astro-loading-indicator
-```
-
-```bash
-yarn add astro-loading-indicator
-```
-
-2. Add the integration to your astro config
-
-```diff
-+import astroLoadingIndicator from "astro-loading-indicator";
-
-export default defineConfig({
-  integrations: [
-+    astroLoadingIndicator({ ... }),
-  ],
-});
-```
-
-#### Component
-
 Install the package **manually**:
 
 1. Install the required dependencies
@@ -84,7 +31,7 @@ yarn add astro-loading-indicator
 ```diff
 ---
 import { ViewTransitions } from "astro:transitions";
-+import { LoadingIndicator } from "astro-loading-indicator"
++import LoadingIndicator from "astro-loading-indicator/component"
 
 ---
 <!doctype html>
@@ -101,7 +48,7 @@ import { ViewTransitions } from "astro:transitions";
 Here is the TypeScript type:
 
 ```ts
-export type Options = {
+export type Props = {
     color: string;
     height?: string;
 }
@@ -110,21 +57,6 @@ export type Options = {
 #### `color`
 
 The indicator background color. Can be any valid CSS property.
-
-```ts
-import { defineConfig } from "astro/config";
-import astroLoadingIndicator from "astro-loading-indicator";
-
-export default defineConfig({
-  integrations: [
-    astroLoadingIndicator({ 
-      color: "#7e22ce",
-      // color: "red",
-      // color: "var(--myColor)"
-     }),
-  ],
-});
-```
 
 ```tsx
 <LoadingIndicator
@@ -137,20 +69,6 @@ export default defineConfig({
 #### `height`
 
 The indicator height. Can be any valid CSS property. Defaults to `"2px"`.
-
-```ts
-import { defineConfig } from "astro/config";
-import astroLoadingIndicator from "astro-loading-indicator";
-
-export default defineConfig({
-  integrations: [
-    astroLoadingIndicator({
-      // ...
-      height: "1rem",
-     }),
-  ],
-});
-```
 
 ```tsx
 <LoadingIndicator

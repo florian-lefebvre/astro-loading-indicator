@@ -9,7 +9,6 @@
 	},
 	"license": "MIT",
 	"keywords": [
-		"astro-integration",
 		"astro-component",
 		"withastro",
 		"astro",
@@ -21,8 +20,7 @@
 	},
 	"sideEffects": false,
 	"exports": {
-		".": "./src/index.ts",
-		"./deps": "./src/deps.ts"
+		"./component": "./src/LoadingIndicator.astro"
 	},
 	"scripts": {},
 	"type": "module",
@@ -30,7 +28,6 @@
 		"astro": "^4.0.0"
 	},
 	"dependencies": {
-		"astro-integration-kit": "^0.0.2",
 		"nprogress": "^0.2.0"
 	},
 	"devDependencies": {

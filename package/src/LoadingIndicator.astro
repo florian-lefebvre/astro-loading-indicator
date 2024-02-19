@@ -1,41 +1,62 @@
 ---
-import type { Options } from './types.js';
-import { resolveOptions } from './utils.js';
-
-export interface Props extends Options {}
-
-const options = resolveOptions(Astro.props)
----
-
-<script is:inline data-options={JSON.stringify(options)}>
-    const options = JSON.parse(
-        document.currentScript?.getAttribute('data-options') ?? null
-    )
-
-    window.__astroLoadingIndicatorOptions = options
-</script>
-<script>
-import { configure, start, done } from "nprogress";
-import "nprogress/nprogress.js";
-import { resolveTemplate } from "./utils"
-
-declare global {
-    interface Window {
-	__astroLoadingIndicatorOptions: Required<import("./types").Options>
-    }
+export interface Props {
+  /**
+   * The indicator background color. Can be any valid CSS property.
+   */
+  color: string;
+  /**
+   * The indicator height. Can be any valid CSS property.
+   *
+   * @default "2px"
+   */
+  height?: string;
 }
 
-const options = window.__astroLoadingIndicatorOptions
+const { color, height = "2px" } = Astro.props;
+---
 
-configure({
+<script define:vars={{ color, height }}>
+  window.__astroLoadingIndicatorOptions = { color, height };
+</script>
+<script>
+  import { configure, start, done } from "nprogress";
+  import "nprogress/nprogress.js";
+  import type { Props } from "./LoadingIndicator.astro";
+
+  const resolveTemplate = ({ color, height }: Required<Props>): string => {
+    const style = {
+      "pointer-events": "none",
+      background: `${color}`,
+      position: "fixed",
+      "z-index": "1031",
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: `${height}`,
+    };
+
+    return `<div style="${Object.entries(style)
+      .map(([key, value]) => `${key}: ${value};`)
+      .join("")}" role="bar"></div>`;
+  };
+
+  declare global {
+    interface Window {
+      __astroLoadingIndicatorOptions: Required<Props>;
+    }
+  }
+
+  const options = window.__astroLoadingIndicatorOptions;
+
+  configure({
     template: resolveTemplate(options),
-    showSpinner: false
-})
+    showSpinner: false,
+  });
 
-document.addEventListener("astro:before-preparation", () => {
+  document.addEventListener("astro:before-preparation", () => {
     start();
-});
-document.addEventListener("astro:after-swap", () => {
+  });
+  document.addEventListener("astro:after-swap", () => {
     done();
-});
+  });
 </script>
