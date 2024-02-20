@@ -28,9 +28,6 @@
 		"astro": "^4.0.0"
 	},
 	"dependencies": {
-		"nprogress": "^0.2.0"
-	},
-	"devDependencies": {
-		"@types/nprogress": "^0.2.3"
+		"@swup/progress-plugin": "^3.1.2"
 	}
 }

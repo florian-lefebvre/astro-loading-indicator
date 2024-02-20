@@ -14,49 +14,48 @@ export interface Props {
 
 const { color, height = "2px" } = Astro.props;
 ---
-
 <script define:vars={{ color, height }}>
-  window.__astroLoadingIndicatorOptions = { color, height };
+document.documentElement.style.setProperty("--astro-loading-indicator-color", color);
+document.documentElement.style.setProperty("--astro-loading-indicator-height", height);
 </script>
+
 <script>
-  import { configure, start, done } from "nprogress";
-  import "nprogress/nprogress.js";
-  import type { Props } from "./LoadingIndicator.astro";
+import SwupProgressPlugin from "@swup/progress-plugin"
+import { TRANSITION_BEFORE_PREPARATION, TRANSITION_BEFORE_SWAP } from 'astro:transitions/client';
 
-  const resolveTemplate = ({ color, height }: Required<Props>): string => {
-    const style = {
-      "pointer-events": "none",
-      background: `${color}`,
-      position: "fixed",
-      "z-index": "1031",
-      top: "0",
-      left: "0",
-      width: "100%",
-      height: `${height}`,
-    };
+const plugin = new SwupProgressPlugin({ className: "astro-loading-indicator" });
 
-    return `<div style="${Object.entries(style)
-      .map(([key, value]) => `${key}: ${value};`)
-      .join("")}" role="bar"></div>`;
-  };
+document.addEventListener(TRANSITION_BEFORE_PREPARATION, () => {
+  (plugin.progressBar as any).installStyleElement();
+  (plugin.progressBar as any).installProgressElement();
+  plugin.startShowingProgress();
+});
 
-  declare global {
-    interface Window {
-      __astroLoadingIndicatorOptions: Required<Props>;
-    }
-  }
+document.addEventListener(TRANSITION_BEFORE_SWAP, (event) => {
+  plugin.stopShowingProgress();
+  setTimeout(() => {
+    (plugin.progressBar as any).fadeProgressElement();
+  }, plugin.options.delay);
 
-  const options = window.__astroLoadingIndicatorOptions;
+  const newDocument = (event as any).newDocument as Document;
+  const rootStyles = getComputedStyle(document.documentElement);
 
-  configure({
-    template: resolveTemplate(options),
-    showSpinner: false,
-  });
-
-  document.addEventListener("astro:before-preparation", () => {
-    start();
-  });
-  document.addEventListener("astro:after-swap", () => {
-    done();
-  });
+  newDocument.documentElement.style.setProperty("--astro-loading-indicator-color", rootStyles.getPropertyValue("--astro-loading-indicator-color"));
+  newDocument.documentElement.style.setProperty("--astro-loading-indicator-height", rootStyles.getPropertyValue("--astro-loading-indicator-height"));
+});
 </script>
+
+<style is:global>
+.astro-loading-indicator {
+  pointer-events:none;
+  background-color: var(--astro-loading-indicator-color);
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  height: var(--astro-loading-indicator-height);
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+</style>
