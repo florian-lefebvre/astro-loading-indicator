@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.3.0
+
+### Minor Changes
+
+- 6d06726: Updates implementation to use `swup` instead of `nprogress`
+
 ## 0.2.0
 
 ### Minor Changes
