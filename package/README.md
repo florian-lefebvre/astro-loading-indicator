@@ -104,4 +104,4 @@ You can now edit files in `package`. Please note that making changes to those fi
 
 ## Acknowledgements
 
-- <https://www.npmjs.com/package/@swup/progress-plugin>
+- https://swup.js.org/plugins/progress-plugin/
