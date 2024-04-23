@@ -1,35 +1,35 @@
 ---
 export interface Props {
-  /**
-   * The indicator background color. Can be any valid CSS property.
-   */
-  color: string;
-  /**
-   * The indicator height. Can be any valid CSS property.
-   *
-   * @default "2px"
-   */
-  height?: string;
-  /**
-   * The indicator element class.
-   *
-   * @default "astro-loading-indicator"
-   */
-  class?: string;
-  /**
-   * The animation duration, in ms.
-   *
-   * @default 300
-   */
-  animationDuration?: number;
+	/**
+	 * The indicator background color. Can be any valid CSS property.
+	 */
+	color: string;
+	/**
+	 * The indicator height. Can be any valid CSS property.
+	 *
+	 * @default "2px"
+	 */
+	height?: string;
+	/**
+	 * The indicator element class.
+	 *
+	 * @default "astro-loading-indicator"
+	 */
+	class?: string;
+	/**
+	 * The animation duration, in ms.
+	 *
+	 * @default 300
+	 */
+	animationDuration?: number;
 }
 
 const {
-  color,
-  height = "2px",
-  class: className = "astro-loading-indicator",
-  animationDuration = 300,
-} = Astro.props
+	color,
+	height = "2px",
+	class: className = "astro-loading-indicator",
+	animationDuration = 300,
+} = Astro.props;
 
 const styles = `.${className} {
   pointer-events: none;
@@ -40,10 +40,12 @@ const styles = `.${className} {
   left: 0;
   width: 100%;
   height: ${height};
-  transition: transform ${animationDuration}ms ease-out, opacity ${animationDuration / 2}ms ${animationDuration / 2}ms ease-in;
+  transition: transform ${animationDuration}ms ease-out, opacity ${
+		animationDuration / 2
+	}ms ${animationDuration / 2}ms ease-in;
 	transform: translate3d(0, 0, 0) scaleX(var(--progress, 0));
   transform-origin: 0;
-}`
+}`;
 ---
 
 <style is:global set:html={styles}></style>

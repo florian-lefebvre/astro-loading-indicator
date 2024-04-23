@@ -8,12 +8,7 @@
 		"url": "https://florian-lefebvre.dev"
 	},
 	"license": "MIT",
-	"keywords": [
-		"astro-component",
-		"withastro",
-		"astro",
-		"ui"
-	],
+	"keywords": ["astro-component", "withastro", "astro", "ui"],
 	"homepage": "https://github.com/florian-lefebvre/astro-loading-indicator",
 	"publishConfig": {
 		"access": "public"
