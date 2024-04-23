@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.4.0
+
+### Minor Changes
+
+- abe0616: Removes the internal `@swup/progress-plugin` dependency and exposes 2 new props: `class` and `animationDuration`.
+
 ## 0.3.0
 
 ### Minor Changes
