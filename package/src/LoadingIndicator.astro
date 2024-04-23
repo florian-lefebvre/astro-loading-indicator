@@ -10,52 +10,93 @@ export interface Props {
    * @default "2px"
    */
   height?: string;
+  /**
+   * The indicator element class.
+   *
+   * @default "astro-loading-indicator"
+   */
+  class?: string;
+  /**
+   * The animation duration, in ms.
+   *
+   * @default 300
+   */
+  animationDuration?: number;
 }
 
-const { color, height = "2px" } = Astro.props;
----
-<script define:vars={{ color, height }}>
-document.documentElement.style.setProperty("--astro-loading-indicator-color", color);
-document.documentElement.style.setProperty("--astro-loading-indicator-height", height);
-</script>
+const {
+  color,
+  height = "2px",
+  class: className = "astro-loading-indicator",
+  animationDuration = 300,
+} = Astro.props
 
-<script>
-import SwupProgressPlugin from "@swup/progress-plugin"
-import { TRANSITION_BEFORE_PREPARATION, TRANSITION_BEFORE_SWAP } from 'astro:transitions/client';
-
-const plugin = new SwupProgressPlugin({ className: "astro-loading-indicator" });
-
-document.addEventListener(TRANSITION_BEFORE_PREPARATION, () => {
-  (plugin.progressBar as any).installStyleElement();
-  (plugin.progressBar as any).installProgressElement();
-  plugin.startShowingProgress();
-});
-
-document.addEventListener(TRANSITION_BEFORE_SWAP, (event) => {
-  plugin.stopShowingProgress();
-  setTimeout(() => {
-    (plugin.progressBar as any).fadeProgressElement();
-  }, plugin.options.delay);
-
-  const newDocument = (event as any).newDocument as Document;
-  const rootStyles = getComputedStyle(document.documentElement);
-
-  newDocument.documentElement.style.setProperty("--astro-loading-indicator-color", rootStyles.getPropertyValue("--astro-loading-indicator-color"));
-  newDocument.documentElement.style.setProperty("--astro-loading-indicator-height", rootStyles.getPropertyValue("--astro-loading-indicator-height"));
-});
-</script>
-
-<style is:global>
-.astro-loading-indicator {
-  pointer-events:none;
-  background-color: var(--astro-loading-indicator-color);
+const styles = `.${className} {
+  pointer-events: none;
+  background-color: ${color};
   position: fixed;
   z-index: 1031;
   top: 0;
   left: 0;
-  height: var(--astro-loading-indicator-height);
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-</style>
+  width: 100%;
+  height: ${height};
+  transition: transform ${animationDuration}ms ease-out, opacity ${animationDuration / 2}ms ${animationDuration / 2}ms ease-in;
+	transform: translate3d(0, 0, 0) scaleX(var(--progress, 0));
+  transform-origin: 0;
+}`
+---
+
+<style is:global set:html={styles}></style>
+
+<script is:inline define:vars={{ className, animationDuration }}>
+(() => {
+  let progress = 0.25
+  let opacity = 0
+  /** @type {number | undefined} */
+  let trickleInterval = undefined
+
+  const element = document.createElement("div")
+  element.classList.add(className)
+  element.ariaHidden = "true"
+
+  /** @param {typeof progress} _progress */
+  const setProgress = (_progress) => {
+    progress = _progress
+    element.style.setProperty('--progress', String(progress))
+  }
+
+  /** @param {typeof opacity} _opacity */
+  const setOpacity = (_opacity) => {
+    opacity = _opacity
+    element.style.setProperty('opacity', String(opacity))
+  }
+
+  setOpacity(opacity)
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.prepend(element)
+  })
+
+  document.addEventListener("astro:before-preparation", () => {
+    setOpacity(1)
+    trickleInterval = window.setInterval(() => {
+      setProgress(progress + Math.random() * 0.03)
+    }, animationDuration)
+  })
+
+  document.addEventListener("astro:before-swap", (ev) => {
+    ev.newDocument.body.prepend(element)
+    window.clearInterval(trickleInterval)
+    trickleInterval = undefined
+
+    setProgress(1)
+    window.setTimeout(() => {
+      setOpacity(0)
+    }, animationDuration / 2)
+
+    window.setTimeout(() => {
+      setProgress(0.25)
+    }, animationDuration * 2)
+  })
+})()
+</script>

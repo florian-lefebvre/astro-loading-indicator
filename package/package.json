@@ -26,8 +26,5 @@
 	"type": "module",
 	"peerDependencies": {
 		"astro": "^4.0.0"
-	},
-	"dependencies": {
-		"@swup/progress-plugin": "^3.1.2"
 	}
 }

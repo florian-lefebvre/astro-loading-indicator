@@ -51,6 +51,8 @@ Here is the TypeScript type:
 export type Props = {
     color: string;
     height?: string;
+    class?: string;
+    animationDuration?: number;
 }
 ```
 
@@ -74,6 +76,28 @@ The indicator height. Can be any valid CSS property. Defaults to `"2px"`.
 <LoadingIndicator
   color="..."
   height="1rem"
+/>
+```
+
+#### `class`
+
+The indicator element class. Defaults to `"astro-loading-indicator"`.
+
+```tsx
+<LoadingIndicator
+  color="..."
+  class="custom-indicator-class"
+/>
+```
+
+#### `animationDuration`
+
+The animation duration, in ms. Defaults to `300`.
+
+```tsx
+<LoadingIndicator
+  color="..."
+  animationDuration={500}
 />
 ```
 
