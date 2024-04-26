@@ -90,9 +90,9 @@ The indicator element class. Defaults to `"astro-loading-indicator"`.
 />
 ```
 
-To override the [default](https://github.com/florian-lefebvre/astro-loading-indicator/blob/7dfc74c19a039b51dfe4b03bdbfc7c3fc8de81c9/package/src/LoadingIndicator.astro#L34) styles provided by the component, you can do so by specifying a [global](https://docs.astro.build/en/guides/styling/#global-styles) style with higher specificity.
+To override the default styles provided by the component, you can use [global styles](https://docs.astro.build/en/guides/styling/#global-styles) with higher specificity.
 
-```html
+```astro
 <style is:global>
   :root .astro-loading-indicator {
     top: 45px;
