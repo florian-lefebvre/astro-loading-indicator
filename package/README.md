@@ -136,7 +136,3 @@ You can now edit files in `package`. Please note that making changes to those fi
 ## Licensing
 
 [MIT Licensed](https://github.com/florian-lefebvre/astro-loading-indicator/blob/main/LICENSE). Made with ❤️ by [Florian Lefebvre](https://github.com/florian-lefebvre).
-
-## Acknowledgements
-
-- https://swup.js.org/plugins/progress-plugin/
