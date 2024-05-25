@@ -1,5 +1,19 @@
 # astro-loading-indicator
 
+## 0.5.0
+
+### Minor Changes
+
+- 515dc78: Adds a `threshold` prop. If the page loads in less than the specified duration (in ms), the indicator will not be shown. It can be set to `false` to always show it. Defaults to `200`.
+
+  ```tsx
+  <LoadingIndicator
+    color="..."
+    threshold={600}
+    // threshold={false}
+  />
+  ```
+
 ## 0.4.0
 
 ### Minor Changes
