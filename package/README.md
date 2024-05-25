@@ -90,6 +90,17 @@ The indicator element class. Defaults to `"astro-loading-indicator"`.
 />
 ```
 
+To override the default styles provided by the component, you can use [global styles](https://docs.astro.build/en/guides/styling/#global-styles) with higher specificity.
+
+```astro
+<style is:global>
+  :root .astro-loading-indicator {
+    top: 45px;
+    z-index: 2000;
+  }
+</style>
+```
+
 #### `animationDuration`
 
 The animation duration, in ms. Defaults to `300`.
@@ -137,7 +148,3 @@ You can now edit files in `package`. Please note that making changes to those fi
 ## Licensing
 
 [MIT Licensed](https://github.com/florian-lefebvre/astro-loading-indicator/blob/main/LICENSE). Made with ❤️ by [Florian Lefebvre](https://github.com/florian-lefebvre).
-
-## Acknowledgements
-
-- https://swup.js.org/plugins/progress-plugin/
