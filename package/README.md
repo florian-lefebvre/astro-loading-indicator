@@ -53,6 +53,7 @@ export type Props = {
     height?: string;
     class?: string;
     animationDuration?: number;
+    threshold?: number;
 }
 ```
 
