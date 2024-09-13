@@ -39,7 +39,7 @@ const {
 	threshold: defaultThreshold = 200,
 } = Astro.props;
 
-const threshold = defaultThreshold === false ? 0 : 200;
+const threshold = defaultThreshold === false ? 0 : defaultThreshold;
 
 const styles = `.${className} {
   pointer-events: none;
