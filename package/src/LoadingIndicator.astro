@@ -55,7 +55,12 @@ const styles = `.${className} {
 	}ms ${animationDuration / 2}ms ease-in;
 	transform: translate3d(0, 0, 0) scaleX(var(--progress, 0));
   transform-origin: 0;
-}`;
+}
+
+[dir="rtl"] .${className} {
+  transform-origin: 100% 0;
+}
+`;
 ---
 
 <style is:global set:html={styles}></style>
