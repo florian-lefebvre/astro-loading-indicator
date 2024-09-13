@@ -1,5 +1,15 @@
 # astro-loading-indicator
 
+## 0.6.0
+
+### Minor Changes
+
+- 2ea5345: Adds support for RTL
+
+### Patch Changes
+
+- 2ea5345: Fixes threshold that was not respected
+
 ## 0.5.0
 
 ### Minor Changes
