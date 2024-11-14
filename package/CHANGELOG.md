@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.6.1
+
+### Patch Changes
+
+- b64c000: Fixes an invalid html attribute on the injected style tag
+
 ## 0.6.0
 
 ### Minor Changes
