@@ -18,7 +18,7 @@ importers:
   package:
     dependencies:
       astro:
-        specifier: ^4.0.0
+        specifier: ^4.0.0 || ^5.0.0
         version: 4.6.3(@types/node@20.12.7)(typescript@5.4.5)
 
   playground:
