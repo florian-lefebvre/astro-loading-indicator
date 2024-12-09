@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.7.0
+
+### Minor Changes
+
+- d057e74: Adds support for Astro 5.0
+
 ## 0.6.1
 
 ### Patch Changes
