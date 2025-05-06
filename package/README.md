@@ -30,14 +30,14 @@ yarn add astro-loading-indicator
 
 ```diff
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 +import LoadingIndicator from "astro-loading-indicator/component"
 
 ---
 <!doctype html>
 <html>
   <head>
-  	<ViewTransitions />
+  	<ClientRouter />
 +		<LoadingIndicator />
   </head>
 </html>
