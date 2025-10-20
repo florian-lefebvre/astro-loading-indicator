@@ -1,19 +1,21 @@
 {
 	"name": "root",
 	"private": true,
-	"packageManager": "pnpm@8.14.1",
+	"packageManager": "pnpm@10.18.3",
 	"engines": {
 		"node": ">=18.19.0"
 	},
 	"scripts": {
 		"playground:dev": "pnpm --filter playground dev",
 		"changeset": "changeset",
-		"release": "node scripts/release.mjs",
 		"lint": "biome check .",
-		"lint:fix": "biome check --apply ."
+		"lint:fix": "biome check --write .",
+		"ci-version": "changeset version && pnpm install --no-frozen-lockfile",
+		"ci-publish": "changeset publish"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.7.1",
-		"@changesets/cli": "^2.27.1"
+		"@biomejs/biome": "2.2.6",
+		"@changesets/cli": "^2.27.9",
+		"@changesets/changelog-github": "^0.5.1"
 	}
 }

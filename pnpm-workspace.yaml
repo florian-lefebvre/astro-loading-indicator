@@ -1,4 +1,3 @@
 packages:
-  - package
-  - "packages/*"
-  - "playground"
+  - packages/*
+  - playground

@@ -1,0 +1,21 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": [
+		"config:recommended",
+		":disableDependencyDashboard",
+		":disablePeerDependencies",
+		"schedule:weekly",
+		"helpers:pinGitHubActionDigestsToSemver",
+		"group:allNonMajor"
+	],
+	"rangeStrategy": "bump",
+	"ignorePaths": ["**/node_modules/**"],
+	"minimumReleaseAge": "3 days",
+	"postUpdateOptions": ["pnpmDedupe"],
+	"packageRules": [
+		{
+			"groupName": "github-actions",
+			"matchManagers": ["github-actions"]
+		}
+	]
+}
