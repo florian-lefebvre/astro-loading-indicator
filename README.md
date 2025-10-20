@@ -2,7 +2,7 @@
 
 Display a progress bar between page navigations when using View Transitions.
 
-To see how to get started, check out the [package README](./package/README.md)
+To see how to get started, check out the [package README](./packages/astro-loading-indicator/README.md)
 
 ## Licensing
 
