@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.7.1
+
+### Patch Changes
+
+- [#19](https://github.com/florian-lefebvre/astro-loading-indicator/pull/19) [`3f4efc6`](https://github.com/florian-lefebvre/astro-loading-indicator/commit/3f4efc69c61ee95207677480da8c711f7d840717) Thanks [@florian-lefebvre](https://github.com/florian-lefebvre)! - Bumps version, no code change
+
 ## 0.7.0
 
 ### Minor Changes
