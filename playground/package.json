@@ -11,8 +11,8 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/tailwind": "^5.1.5",
-		"astro": "^4.16.19",
+		"@astrojs/tailwind": "^6.0.2",
+		"astro": "^5.16.4",
 		"astro-loading-indicator": "workspace:*",
 		"tailwindcss": "^3.4.18"
 	},
