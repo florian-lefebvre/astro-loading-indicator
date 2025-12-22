@@ -3,7 +3,7 @@
 	"private": true,
 	"packageManager": "pnpm@10.25.0",
 	"engines": {
-		"node": ">=18.20.8"
+		"node": ">=24.12.0"
 	},
 	"scripts": {
 		"playground:dev": "pnpm --filter playground dev",
