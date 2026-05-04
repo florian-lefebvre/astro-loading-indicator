@@ -12,12 +12,12 @@
 	},
 	"dependencies": {
 		"@astrojs/tailwind": "^6.0.2",
-		"astro": "^6.1.9",
+		"astro": "^6.2.1",
 		"astro-loading-indicator": "workspace:*",
 		"tailwindcss": "^3.4.19"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.8",
+		"@astrojs/check": "^0.9.9",
 		"@types/node": "^20.19.39",
 		"typescript": "^6.0.3"
 	}
