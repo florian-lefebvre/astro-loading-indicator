@@ -22,16 +22,16 @@ importers:
     dependencies:
       astro:
         specifier: ^4.0.0 || ^5.0.0 || ^6.0.0
-        version: 6.3.3(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3)
+        version: 6.3.7(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3)
 
   playground:
     dependencies:
       '@astrojs/tailwind':
         specifier: ^6.0.2
-        version: 6.0.2(astro@6.3.3(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3))(tailwindcss@3.4.19(yaml@2.8.3))
+        version: 6.0.2(astro@6.3.7(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3))(tailwindcss@3.4.19(yaml@2.8.3))
       astro:
-        specifier: ^6.3.3
-        version: 6.3.3(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3)
+        specifier: ^6.3.7
+        version: 6.3.7(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3)
       astro-loading-indicator:
         specifier: workspace:*
         version: link:../packages/astro-loading-indicator
@@ -911,8 +911,8 @@ packages:
     resolution: {integrity: sha512-HGyxoOTYUyCM6stUe6EJgnd4EoewAI7zMdfqO+kGjnlZmBDz/cR5pf8r/cR4Wq60sL/p0IkcjUEEPwS3GFrIyw==}
     engines: {node: '>=8'}
 
-  astro@6.3.3:
-    resolution: {integrity: sha512-wvLIZQYbBZt6U8gyflBW4SLBypaqdwLZUH93rT3oT53cmQ0bTGubvMAGjqBRoheOYzYcTJZtW6czztzbu4kQ5g==}
+  astro@6.3.7:
+    resolution: {integrity: sha512-zIeDRrI0qNgN1lcCjNqt6/IVCVej7VwSa326cO8uP9BOk1cg4QuffhLnOn2gCgWQr32/wxpSRFfXiLKHglu1Tw==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2566,9 +2566,9 @@ snapshots:
     dependencies:
       prismjs: 1.30.0
 
-  '@astrojs/tailwind@6.0.2(astro@6.3.3(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3))(tailwindcss@3.4.19(yaml@2.8.3))':
+  '@astrojs/tailwind@6.0.2(astro@6.3.7(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3))(tailwindcss@3.4.19(yaml@2.8.3))':
     dependencies:
-      astro: 6.3.3(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3)
+      astro: 6.3.7(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3)
       autoprefixer: 10.4.21(postcss@8.5.6)
       postcss: 8.5.6
       postcss-load-config: 4.0.2(postcss@8.5.6)
@@ -3313,7 +3313,7 @@ snapshots:
 
   array-union@2.1.0: {}
 
-  astro@6.3.3(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3):
+  astro@6.3.7(@types/node@20.19.41)(jiti@1.21.7)(rollup@4.52.5)(yaml@2.8.3):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.9.1
