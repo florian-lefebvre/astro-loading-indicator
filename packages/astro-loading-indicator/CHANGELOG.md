@@ -1,5 +1,11 @@
 # astro-loading-indicator
 
+## 0.9.0
+
+### Minor Changes
+
+- [#75](https://github.com/florian-lefebvre/astro-loading-indicator/pull/75) [`0d21a0f`](https://github.com/florian-lefebvre/astro-loading-indicator/commit/0d21a0f0c0294b4dbab096ee9689c5fe67984799) Thanks [@JusticeMatthew](https://github.com/JusticeMatthew)! - Adds support for Astro 7.0
+
 ## 0.8.0
 
 ### Minor Changes
